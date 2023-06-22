@@ -1,0 +1,30 @@
+<div class="">
+    <div class="left-chat-sidebar">
+        <div class="chat-sidebar-head">
+            <h3 class="head-name me-4">Messages</h3>
+            <button type="button" class="btn btn-link btn-floating mx-1 edit-btn">
+                <i class="fa fa-pen-to-square"></i>
+            </button>
+        </div>
+        <div class="input-icons">
+            <i class="fa fa-magnifying-glass icon"></i>
+            <input type="text" placeholder="Search..." class="search-box input-field" />
+        </div>
+        <div class="sidebar-body">
+            <div class="pin-message">
+                <i class="fa fa-star"></i><b>Pinned</b>
+                <div class="pinned-chat-list" *ngFor="let list of pinnedchatList">
+                    <img src="/frontend/src/assets/images/profile.jpg" alt="" class="img-pinned" />
+                    {{list.name}}
+                    {{list.time}}
+                </div>
+            </div>
+            <div class="all-message">
+
+            </div>
+        </div>
+    </div>
+    <div class="right-chat-open">
+
+    </div>
+</div>

@@ -1,0 +1,148 @@
+<div class="container login-component">
+    <div class="top-div">
+        <div class="login-tab">
+            <ng-container *ngIf="choosenTab">
+                <div class="tabs-section d-md-flex">
+                    <ul class="nav" id="myTab" role="tablist">
+                        <li class="nav-item each-info-tab cursor-pointer {{eachtab.value}}" *ngFor="let eachtab of tabs"
+                            [ngClass]="eachtab.value === choosenTab ? 'active' : ''">
+                            <a class="nav-link active py-0 my-1" title="{{eachtab.label}}"
+                                (click)="switchTabs(eachtab)">{{eachtab.label}}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </ng-container>
+        </div>
+        <div class="login-div" *ngIf="choosenTab === 'login'">
+            <form #loginForm="ngForm" (ngSubmit)="login()">
+                <div class="text-center mb-3">
+                    <p>Sign in with:</p>
+                    <button type="button" class="btn btn-link btn-floating mx-1">
+                        <i class="fa-brands fa-facebook"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-link btn-floating mx-1">
+                        <i class="fa-brands fa-google"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-link btn-floating mx-1">
+                        <i class="fa-brands fa-twitter"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-link btn-floating mx-1">
+                        <i class="fa-brands fa-github"></i>
+                    </button>
+                </div>
+
+                <p class="text-center">or:</p>
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="loginName">Username</label>
+                    <input type="email" id="loginName" class="form-control" name="username" [(ngModel)]="loginData.username" required/>
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" class="form-control" name="password" [(ngModel)]="loginData.password" required/>
+                </div>
+
+                <!-- 2 column grid layout -->
+                <div class="row mb-4">
+                    <div class="col-md-6 d-flex justify-content-center">
+                        <!-- Checkbox -->
+                        <div class="form-check mb-3 mb-md-0">
+                            <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+                            <label class="form-check-label" for="loginCheck"> Remember me </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 d-flex justify-content-center">
+                        <!-- Simple link -->
+                        <a href="#!">Forgot password?</a>
+                    </div>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+                <!-- Register buttons -->
+                <div class="text-center">
+                    <p>Not a member? <a>Register</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="register-div" *ngIf="choosenTab === 'register'">
+            <form #registerForm="ngForm" (ngSubmit)="register()">
+                <div class="text-center mb-3">
+                    <p>Sign up with:</p>
+                    <button type="button" class="btn btn-link btn-floating mx-1">
+                        <i class="fa-brands fa-facebook"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-link btn-floating mx-1">
+                        <i class="fa-brands fa-google"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-link btn-floating mx-1">
+                        <i class="fa-brands fa-twitter"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-link btn-floating mx-1">
+                        <i class="fa-brands fa-github"></i>
+                    </button>
+                </div>
+
+                <p class="text-center">or:</p>
+
+                <!-- Name input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="registerName">Name</label>
+                    <input type="text" id="registerName" class="form-control" name="name" [(ngModel)]="registerData.name" required/>
+                </div>
+
+                <!-- Mobile No input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="registerMobileNo">Mobile No</label>
+                    <input type="text" id="registerMobileNo" class="form-control" name="mobile" [(ngModel)]="registerData.mobile" required/>
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" class="form-control" name="email" [(ngModel)]="registerData.email" required/>
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" class="form-control" name="passowrd" [(ngModel)]="registerData.password" required/>
+                </div>
+
+                <!-- Checkbox -->
+                <div class="form-check d-flex justify-content-center mb-4">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
+                        aria-describedby="registerCheckHelpText" />
+                    <label class="form-check-label" for="registerCheck">
+                        I have read and agree to the terms
+                    </label>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div *ngIf="loaders?.show">
+    <div id="loader-wrapper-submaincontent">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>

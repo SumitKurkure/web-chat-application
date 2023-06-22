@@ -1,0 +1,48 @@
+.join-box {
+    font-size: 2rem;
+}
+
+.btn {
+    font-size: 2rem;
+}
+
+.meeting-screen-div {
+    padding: 4rem;
+
+    .info-head {
+        display: flex;
+        align-items: center;
+
+        .hosted-by {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 1.5rem;
+            margin-right: auto;
+
+            img {
+                width: 3.5rem;
+                height: 3rem;
+                border-radius: 2rem;
+            }
+
+            span {
+                padding: 0 1rem;
+            }
+        }
+
+        .participant {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            margin-right: auto;
+
+            img {
+                border-radius: 2rem;
+                width: 3.5rem;
+                height: 3rem;
+            }
+        }
+    }
+}
