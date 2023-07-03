@@ -1,9 +1,9 @@
-<div class="">
+<div class="chat-dashboard">
     <div class="left-chat-sidebar">
         <div class="chat-sidebar-head">
             <h3 class="head-name me-4">Messages</h3>
-            <button type="button" class="btn btn-link btn-floating mx-1 edit-btn">
-                <i class="fa fa-pen-to-square"></i>
+            <button type="button" class="btn btn-link btn-floating mx-1 edit-btn" >
+                <i class="fa fa-duotone fa-gear"></i>
             </button>
         </div>
         <div class="input-icons">
@@ -11,20 +11,44 @@
             <input type="text" placeholder="Search..." class="search-box input-field" />
         </div>
         <div class="sidebar-body">
-            <div class="pin-message">
+            <!-- <div class="pin-message">
                 <i class="fa fa-star"></i><b>Pinned</b>
-                <div class="pinned-chat-list" *ngFor="let list of pinnedchatList">
+                <div class="pinned-chat-list" *ngFor="let list of pinedchatList">
                     <img src="/frontend/src/assets/images/profile.jpg" alt="" class="img-pinned" />
                     {{list.name}}
                     {{list.time}}
                 </div>
-            </div>
+            </div> -->
             <div class="all-message">
-
+                <div class="pinned-chat-list" *ngFor="let list of pinnedchatList">
+                    <img src="/assets/images/profile.jpg" alt="" class="img-pinned" />
+                    <span>
+                        {{list.name}}
+                    </span>
+                    <span>
+                        {{list.time}}
+                    </span>
+                </div>
             </div>
         </div>
     </div>
     <div class="right-chat-open">
-
+        <app-chat-dashboard></app-chat-dashboard>
     </div>
 </div>
+
+<!-- <ng-template #settingModal> -->
+    <!-- <app-settings></app-settings>
+     -->
+    <!-- <div class="modal-header">
+        <h4 class="modal-title">Hi there!</h4>
+        <button type="button" class="btn-close" aria-label="Close"
+            (click)="activeModal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <p>Hello,!</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+    </div> -->
+<!-- </ng-template> -->
