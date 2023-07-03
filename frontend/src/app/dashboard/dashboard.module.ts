@@ -7,12 +7,14 @@ import { ChatComponent } from './chat/chat.component';
 import { VideoComponent } from './video/video.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ChatDashboardComponent } from './chat/chat-dashboard/chat-dashboard.component';
+import { SettingsComponent } from '../settings/settings.component';
 
 @NgModule({
   declarations: [
     ChatComponent,
     VideoComponent,
-    ChatDashboardComponent
+    ChatDashboardComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
