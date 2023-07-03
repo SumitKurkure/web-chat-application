@@ -159,3 +159,114 @@
         /* Firefox 16+, IE 10+, Opera */
     }
 }
+
+.chat-dashboard{
+    display: flex;
+}
+.left-chat-sidebar {
+    width: 22vw;
+    background-color: powderblue;
+    height: 100vh;
+}
+
+.right-chat-open {
+    width: 78vw;
+    height: 100vh;
+    .chat-open-head{
+        background-color: green;
+        color: white;
+        height: 10%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        img{
+            margin: 1rem 1rem 1rem 4rem ;
+        }
+        .chat-window-name{
+            font-size: 2rem;
+        }
+    }
+    .chat-open-body{
+        height: 90%;
+    }
+}
+
+.chat-sidebar-head {
+    display: flex;
+    justify-content: space-around;
+    button{
+        outline: none !important;
+    }
+}
+
+.search-box {
+    border: none;
+    background-color: aliceblue;
+}
+
+.input-icons i {
+    position: absolute;
+}
+
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 0 13px;
+}
+
+.icon {
+    padding: 10px;
+    min-width: 40px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+
+    &:focus {
+        outline: 1px solid lightblue;
+    }
+}
+.edit-btn:focus{
+    outline: none;
+}
+.sidebar-body{
+    padding: 0 13px;
+}
+.fa-star {
+    margin-right: 10px;
+}
+.img-pinned{
+    background-color: black;
+    display: inline-block;
+    width: 6rem;
+    height: 5rem;
+    border-radius: 50%;
+  
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.pinned-chat-list{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0;
+    span{
+        font-size: larger;
+    }
+}
+.fa{
+    font-size: large;
+}
+.head-name{
+    margin-bottom: 29px;
+}
+.fa-ellipsis-vertical{
+    font-size: xx-large;
+    margin-right: 3rem;
+}
+/* Importing Bootstrap SCSS file. */
+// @import '~bootstrap/scss/bootstrap';
