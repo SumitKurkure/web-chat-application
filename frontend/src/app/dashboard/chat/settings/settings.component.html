@@ -1,1 +1,15 @@
-<h1>Settings</h1>
+<div class="setting-component">
+    <div class="profile-picture">
+        
+    </div>
+    <div class="menu-list">
+        <div class="menu-grp" *ngFor="let item of settingMenu">
+            <div class="menu-icons">
+                <i class="{{item.icon}}"></i>
+            </div>
+            <div class="menu-label">
+                {{item.label}}
+            </div>
+        </div>
+    </div>
+</div>

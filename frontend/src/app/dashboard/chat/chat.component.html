@@ -32,11 +32,11 @@
             </div>
         </div>
     </div>
-    <div class="middle-chat-setting" *ngIf="showSettings">
-        <app-settings></app-settings>
-    </div>
-    <div class="right-chat-open" ngClass="{{showSettings ? 'chat-dashboard-w-50' : 'right-chat-50'}}">
+    <div class="middle-chat-open" ngClass="{{showSettings ? 'chat-dashboard-w-50' : 'right-chat-50'}}">
         <app-chat-dashboard></app-chat-dashboard>
+    </div>
+    <div class="right-chat-setting" *ngIf="showSettings">
+        <app-settings></app-settings>
     </div>
 </div>
 
