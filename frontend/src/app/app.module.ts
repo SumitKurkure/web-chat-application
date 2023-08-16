@@ -13,7 +13,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
     AppComponent,
     LoginComponent,
     EmptyStateComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,7 +8,8 @@
         </div>
         <div class="input-icons">
             <i class="fa fa-magnifying-glass icon"></i>
-            <input type="text" placeholder="Search..." class="search-box input-field" />
+            <input type="text" placeholder="Search..." [(ngModel)]="searchText" class="search-box input-field"
+                (input)="onSearch(searchText)" />
         </div>
         <div class="sidebar-body">
             <!-- <div class="pin-message">
@@ -20,15 +21,21 @@
                 </div>
             </div> -->
             <div class="all-message">
-                <div class="pinned-chat-list" *ngFor="let list of pinnedchatList">
-                    <img src="/assets/images/profile.jpg" alt="" class="img-pinned" />
-                    <span>
-                        {{list.name}}
-                    </span>
-                    <span>
-                        {{list.time}}
-                    </span>
-                </div>
+                <ng-container *ngIf="chatList; else noDataFound">
+                    <div class="pinned-chat-list" *ngFor="let list of chatList">
+                        <img src="/assets/images/profile.jpg" alt="" class="img-pinned curser-pointer" />
+                        <div class="chat-name-message-div">
+                            <span>{{list.name}}</span>
+                            <span class="chat-message-span">{{list.message}}</span>
+                        </div>
+                        <div>
+                            {{list.time}}
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-template #noDataFound>
+                    <div>No Chat Found</div>
+                </ng-template>
             </div>
         </div>
     </div>
@@ -36,7 +43,7 @@
         <app-chat-dashboard></app-chat-dashboard>
     </div>
     <div class="right-chat-setting" *ngIf="showSettings">
-        <app-settings></app-settings>
+        <!-- <app-settings></app-settings> -->
+        app
     </div>
 </div>
-
