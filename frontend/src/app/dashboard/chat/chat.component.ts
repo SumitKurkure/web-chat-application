@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { io } from 'socket.io-client';
 
 @Component({
   selector: 'app-chat',
@@ -32,14 +33,6 @@ export class ChatComponent implements OnInit {
   public tempChatList: any;
   public searchText: any;
   constructor() {
-    var sock = new WebSocket("wss://demo.piesocket.com");
-    sock.onopen = function (event) {
-      console.log(event);
-      sock.send("HI Sumit");
-    }
-    sock.onmessage = function (event) {
-      console.log(event)
-    }
   }
 
   ngOnInit(): void {
@@ -66,5 +59,27 @@ export class ChatComponent implements OnInit {
     })
     this.chatList = arr;
   }
+  userName = '';
+  message = '';
+  messageList: { message: string, userName: string, mine: boolean }[] = [];
+  socket: any;
+  
+  userNameUpdate(name: string): void {
+    this.socket = io.io(`http://localhost:3000/?userName=${name}`);
+    this.userName = name;
 
+    this.socket.emit('set-user-name', name);
+
+    this.socket.on('message-broadcast', (data: { message: string, userName: string }) => {
+      if (data) {
+        this.messageList.push({ message: data.message, userName: data.userName, mine: false });
+      }
+    });
+  }
+
+  sendMessage(): void {
+    this.socket.emit('message', this.message);
+    this.messageList.push({ message: this.message, userName: this.userName, mine: true });
+    this.message = '';
+  }
 }

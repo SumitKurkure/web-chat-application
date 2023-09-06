@@ -1,4 +1,4 @@
-<div class="chat-dashboard">
+<!-- <div class="chat-dashboard">
     <div class="left-chat-sidebar">
         <div class="chat-sidebar-head">
             <h3 class="head-name me-4">Messages</h3>
@@ -20,7 +20,7 @@
                     {{list.time}}
                 </div>
             </div> -->
-            <div class="all-message">
+            <!-- <div class="all-message">
                 <ng-container *ngIf="chatList; else noDataFound">
                     <div class="pinned-chat-list" *ngFor="let list of chatList">
                         <img src="/assets/images/profile.jpg" alt="" class="img-pinned curser-pointer" />
@@ -42,8 +42,30 @@
     <div class="middle-chat-open" ngClass="{{showSettings ? 'chat-dashboard-w-50' : 'right-chat-50'}}">
         <app-chat-dashboard></app-chat-dashboard>
     </div>
-    <div class="right-chat-setting" *ngIf="showSettings">
+    <div class="right-chat-setting" *ngIf="showSettings"> -->
         <!-- <app-settings></app-settings> -->
-        app
+        <!-- app -->
+    <!-- </div> -->
+<!-- </div> -->
+<div class="container">
+    <h1>Chat Room</h1>
+    <app-chat-username (userNameEvent)="userNameUpdate($event)" *ngIf="!userName"></app-chat-username>
+    <div class="chatbox">
+      <div class="messages_list">
+        <div class="chatbox__messages" *ngFor="let msg of messageList" [ngClass]="{mine: msg.mine}">
+          <div class="user-message">
+            <div class="message-box">
+              <p class="name">{{ msg.userName }}</p>
+              <br/>
+              <p class="message">{{ msg.message }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+    <div class="send-message">
+      <input type="text" [(ngModel)]="message">
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+  

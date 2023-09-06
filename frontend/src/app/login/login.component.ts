@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     this.loaders.show = true;
     setTimeout(() => {
       this.loaders.show = false;
-      this.router.navigateByUrl('/app/chat');
+      this.router.navigateByUrl('/app/chat-room');
     }, 3000);
 
   }

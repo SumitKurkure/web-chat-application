@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatDashboardComponent implements OnInit {
 
+  public userMessage :any = "";
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  sendMessage(){
+    try {
+      
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }

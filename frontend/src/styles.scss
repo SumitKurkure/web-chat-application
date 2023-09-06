@@ -1,3 +1,4 @@
+
 .lds-ring {
     display: inline-block;
     // position: relative;
@@ -172,7 +173,8 @@
 
 .middle-chat-open {
     height: 100vh;
-    width: 78%;
+    // width: 78%;
+    width: 100% ;
 
     .chat-open-head {
         background-color: green;
@@ -195,10 +197,12 @@
     .chat-open-body {
         height: 100%;
         width: 100%;
-        .receiver{
+
+        .receiver {
             text-align: left;
         }
-        .sender{
+
+        .sender {
             text-align: right;
         }
     }
@@ -329,4 +333,10 @@
 
 .chat-message-span {
     color: #00000078;
+}
+.d-flex{
+    display: flex;
+    .btn { 
+        margin-left: 2rem;
+    }
 }

@@ -11,11 +11,17 @@
         </div>
     </div>
     <div class="chat-open-body">
-    <div class="receiver">
-        <span>Hi Sumit</span>
+        <div class="receiver">
+            <strong>Pooja</strong>
+            <span>Hi Sumit</span>
+        </div>
+        <div class="sender">
+            <strong>Sumit</strong>
+            <span>Hi Sumit</span>
+        </div>
     </div>
-    <div class="sender">
-        <span>Hi Sumit</span>
-    </div>
+    <div class="chat-open-footer">
+        <input type="text" placeholder="Enter Messages" name="message" [(ngModel)]="userMessage">
+        <button type="submit" class="btn btn-primary">Send</button>
     </div>
 </div>

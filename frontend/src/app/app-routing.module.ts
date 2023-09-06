@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { VideoComponent } from './dashboard/video/video.component';
 import { EmptyStateComponent } from './empty-state/empty-state.component';
 import { LoginComponent } from './login/login.component';
+import { ChatRoomComponent } from './dashboard/chat-room/chat-room.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
         path: 'app', component: DashboardComponent, children: [
           { path: '', redirectTo: 'chat', pathMatch: 'full' },
           { path: 'chat', component: ChatComponent },
-          { path: 'video', component: VideoComponent }
+          { path: 'video', component: VideoComponent },
+          { path: 'chat-room', component: ChatRoomComponent },
         ]
       },
       { path: '**', component: EmptyStateComponent }
