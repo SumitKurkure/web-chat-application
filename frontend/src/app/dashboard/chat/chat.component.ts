@@ -81,4 +81,7 @@ export class ChatComponent implements OnInit {
     this.messageList.push({ message: this.message, userName: this.userName, mine: true });
     this.message = '';
   }
+  openChatDashboard(chat:any){
+    let chatData = JSON.parse(JSON.stringify(chat));
+  }
 }
