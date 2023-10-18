@@ -10,7 +10,16 @@ app.get('/', (req, res) => {
     res.send('Services up for the Chat Application');
 })
 
-let userList = new Map();
+app.get(`/get-user-list/${userName}`, (req, res) => {
+//get all user list with whom he/she talked
+});
+app.post('/register', (req, res) => {
+    //this is added for the registertration of the user
+});
+app.post('/login',(req,res)=>{
+
+});
+let userList = new Map;
 
 io.on('connection', (socket) => {
     let userName = socket.handshake.query.userName;

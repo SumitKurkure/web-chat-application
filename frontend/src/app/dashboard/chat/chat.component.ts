@@ -32,6 +32,7 @@ export class ChatComponent implements OnInit {
   public showSettings: any = false;
   public tempChatList: any;
   public searchText: any;
+  public openChat: any = {};
   constructor() {
   }
 
@@ -66,7 +67,8 @@ export class ChatComponent implements OnInit {
   socket: any;
 
   initializeConnection(){
-    this.socket = io.io(`http://localhost:3000/?userName=${name}`);
+    this.socket = io.io(`http://localhost:3000/`);
+    // ?userName=${name}
     this.socket.emit('set-user-name', name);
 
     this.socket.on('message-broadcast', (data: { message: string, userName: string }) => {
@@ -82,6 +84,6 @@ export class ChatComponent implements OnInit {
     this.message = '';
   }
   openChatDashboard(chat:any){
-    let chatData = JSON.parse(JSON.stringify(chat));
+    this.openChat = JSON.parse(JSON.stringify(chat));
   }
 }
