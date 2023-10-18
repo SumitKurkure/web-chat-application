@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { ChatComponent } from './chat/chat.component';
@@ -10,8 +9,6 @@ import { ChatDashboardComponent } from './chat/chat-dashboard/chat-dashboard.com
 import { SettingsComponent } from './chat/settings/settings.component';
 import { ChatSidebarComponent } from './chat/chat-sidebar/chat-sidebar.component';
 import { FormsModule } from '@angular/forms';
-import { ChatRoomComponent } from './chat-room/chat-room.component';
-import { ChatUsernameComponent } from './chat/chat-username/chat-username.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +17,6 @@ import { ChatUsernameComponent } from './chat/chat-username/chat-username.compon
     ChatDashboardComponent,
     SettingsComponent,
     ChatSidebarComponent,
-    ChatRoomComponent,
-    ChatUsernameComponent,
   ],
   imports: [
     CommonModule,

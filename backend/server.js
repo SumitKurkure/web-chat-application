@@ -4,14 +4,10 @@ const cors = require('cors');
 const app = express();
 const http = require('http').createServer(app);
 
-const io = require('socket.io')(http, {
-    cors: {
-        origin: '*'
-    }
-});
+const io = require('socket.io')(http, { cors: { origin: '*' } });
 
 app.get('/', (req, res) => {
-    res.send('Heello world');
+    res.send('Services up for the Chat Application');
 })
 
 let userList = new Map();
@@ -21,7 +17,7 @@ io.on('connection', (socket) => {
     addUser(userName, socket.id);
 
     socket.on('message', (msg) => {
-        socket.broadcast.emit('message-broadcast', {message: msg, userName: userName});
+        socket.broadcast.emit('message-broadcast', { message: msg, userName: userName });
     })
 
     socket.on('disconnect', (reason) => {

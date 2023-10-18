@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { io } from 'socket.io-client';
+import * as io from 'socket.io-client';
 
 @Component({
   selector: 'app-chat',
@@ -36,6 +36,7 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.initializeConnection();
     this.tempChatList = this.chatList;
   }
   openSetting() {
@@ -63,11 +64,9 @@ export class ChatComponent implements OnInit {
   message = '';
   messageList: { message: string, userName: string, mine: boolean }[] = [];
   socket: any;
-  
-  userNameUpdate(name: string): void {
-    this.socket = io.io(`http://localhost:3000/?userName=${name}`);
-    this.userName = name;
 
+  initializeConnection(){
+    this.socket = io.io(`http://localhost:3000/?userName=${name}`);
     this.socket.emit('set-user-name', name);
 
     this.socket.on('message-broadcast', (data: { message: string, userName: string }) => {
