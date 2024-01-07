@@ -13,7 +13,7 @@
       <div class="search-box">
         <div class="input-wrapper">
           <i class="material-icons">search</i>
-          <input placeholder="Search here" type="text">
+          <input placeholder="Search here" type="text" onchange="onSearch($event.key)">
         </div>
       </div>
       <div class="friend-drawer friend-drawer--onhover" *ngFor="let chat of chatList" (click)="openChatDashboard(chat)">
@@ -61,10 +61,9 @@
         <div class="row">
           <div class="col-12">
             <div class="chat-box-tray">
-              <i class="material-icons">sentiment_very_satisfied</i>
-              <input type="text" placeholder="Type your message here...">
-              <i class="material-icons">mic</i>
-              <i class="material-icons">send</i>
+              <!-- <i class="material-icons">sentiment_very_satisfied</i> -->
+              <input type="text" placeholder="Type your message here..." [(ngModel)]="message">
+              <i class="material-icons" (click)="sendMessage()">send</i>
             </div>
           </div>
         </div>

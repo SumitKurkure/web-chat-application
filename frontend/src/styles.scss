@@ -166,12 +166,13 @@
 }
 
 .left-chat-sidebar {
-    width: 22vw;
+    width: 25vw;
     background-color: powderblue;
     height: 100vh;
 }
 
 .middle-chat-open {
+    width: 50vw;
     height: 100vh;
     // width: 78%;
     width: 100% ;
@@ -307,8 +308,6 @@
     margin-left: 22%;
 }
 
-.right-chat-50 {}
-
 .curser-pointer {
     cursor: pointer;
 }
@@ -339,4 +338,7 @@
     .btn { 
         margin-left: 2rem;
     }
+}
+.material-icons{
+    cursor : pointer;
 }

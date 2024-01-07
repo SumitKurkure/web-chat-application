@@ -18,16 +18,6 @@ export class ChatComponent implements OnInit {
       message: 'Hi Sumit , i attached Documentation linked below you can find in mail',
       time: '4:20'
     },
-    {
-      name: 'Akash Kapil',
-      message: 'Hi Nikhil',
-      time: '4:20'
-    },
-    {
-      name: 'Priya Gupta',
-      message: 'Hi Sumit , i attached Documentation linked below you can find in mail',
-      time: '4:20'
-    }
   ];
   public showSettings: any = false;
   public tempChatList: any;
@@ -61,10 +51,10 @@ export class ChatComponent implements OnInit {
     })
     this.chatList = arr;
   }
-  userName = '';
-  message = '';
-  messageList: { message: string, userName: string, mine: boolean }[] = [];
-  socket: any;
+  public userName = 'sumit';
+  public message = '';
+  public messageList: { message: string, userName: string, mine: boolean }[] = [];
+  public socket: any;
 
   initializeConnection(){
     this.socket = io.io(`http://localhost:3000/`);
@@ -79,9 +69,13 @@ export class ChatComponent implements OnInit {
   }
 
   sendMessage(): void {
-    this.socket.emit('message', this.message);
-    this.messageList.push({ message: this.message, userName: this.userName, mine: true });
-    this.message = '';
+    try {
+      this.socket.emit('message', this.message);
+      this.messageList.push({ message: this.message, userName: this.userName, mine: true });
+      this.message = '';
+    } catch (error) {
+      console.error(error);    
+    }
   }
   openChatDashboard(chat:any){
     this.openChat = JSON.parse(JSON.stringify(chat));

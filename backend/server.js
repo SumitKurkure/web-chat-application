@@ -7,32 +7,39 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http, { cors: { origin: '*' } });
 
 app.get('/', (req, res) => {
-    res.send('Services up for the Chat Application');
+    res.send('Services Running');
 })
 
-app.get(`/get-user-list/${userName}`, (req, res) => {
-//get all user list with whom he/she talked
-});
-app.post('/register', (req, res) => {
-    //this is added for the registertration of the user
-});
-app.post('/login',(req,res)=>{
-
-});
 let userList = new Map;
 
 io.on('connection', (socket) => {
     let userName = socket.handshake.query.userName;
     addUser(userName, socket.id);
 
+    let data = {
+        userData : {
+            userNameTo : '',
+            userNameFrom : '',
+        },
+        message : '',
+        roomData : {
+            roomId : ''
+        }
+    }
+
     socket.on('message', (msg) => {
-        socket.broadcast.emit('message-broadcast', { message: msg, userName: userName });
+        saveMessages(data);
+        socket.emit('message-broadcast', { message: msg, userName: userName });
     })
 
     socket.on('disconnect', (reason) => {
-        removeUser(userName, socket.id);
+        removeUser(userName, socket.id); 
     })
 });
+
+function saveMessages(data){
+
+}
 
 function addUser(userName, id) {
     if (!userList.has(userName)) {
